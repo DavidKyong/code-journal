@@ -13,6 +13,6 @@ window.addEventListener('beforeunload', function (event) {
 });
 
 const previousDataJSON = localStorage.getItem('javascript-local-storage');
-if (dataJSON === previousDataJSON) {
-  data = JSON.parse(dataJSON);
+if (previousDataJSON !== null) {
+  data = JSON.parse(previousDataJSON);
 }
