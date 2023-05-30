@@ -2,15 +2,18 @@
   display: none !important;
 }
 
+body {
+  background-color: rgb(240, 240, 240);
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  background-color: rgb(240, 240, 240);
 }
 
 form {
-  font-family: "open sans";
+  font-family: "open sans", sans-serif;
   font-size: 15px;
 }
 

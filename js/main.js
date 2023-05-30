@@ -3,7 +3,6 @@ const $image = document.querySelector('img');
 const $form = document.querySelector('form');
 
 $inputURL.addEventListener('input', function (event) {
-  event.preventDefault();
   $image.setAttribute('src', event.target.value);
 });
 
@@ -22,8 +21,8 @@ $form.addEventListener('submit', function (event) {
   formValue.entryId = data.nextEntryId;
   data.nextEntryId++;
 
-  data.entries.push(formValue);
+  data.entries.unshift(formValue);
 
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
-  event.target.reset();
+  $form.reset();
 });

@@ -6,7 +6,8 @@
 }
 
 header {
-  font-family: "proza libre";
+  font-family: "proza libre", sans-serif;
+  background-color: rgb(86, 43, 129);
 }
 
 button {
@@ -40,19 +41,13 @@ textarea {
 }
 
 .tabTitle {
-  background-color: rgb(86, 43, 129);
   color: white;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
   padding-top: 0.25rem;
-  padding-left: 1.5rem;
   padding-bottom: 0.25rem;
 }
 
 @media screen and (min-width: 768px) {
-  .tabTitle {
-    margin-right: -2.25rem;
-    margin-left: -2.25rem;
-    padding-left: 2.25rem;
+  .right {
+    margin-top: 4rem;
   }
 }
