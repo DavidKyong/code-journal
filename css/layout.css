@@ -6,7 +6,12 @@
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(240, 240, 240);
+}
+
+form {
+  font-family: "open sans";
+  font-size: 15px;
 }
 
 .row {
@@ -45,4 +50,11 @@ textarea {
 #url,
 #title {
   width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgb(86, 43, 129);
+  outline: none;
+  border-width: 2px;
 }
