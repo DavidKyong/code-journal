@@ -7,11 +7,23 @@ $inputURL.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
 });
 
-
-
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const formValue = {};
-  formValue += event.target.value;
+  const $title = $form.elements.pageTitle.value;
+  const $url = $form.elements.photoURL.value;
+  const $message = $form.elements.message.value;
 
+  const formValue = {
+    title: $title,
+    url: $url,
+    notes: $message
+  };
+
+  formValue.entryId = data.nextEntryId;
+  data.nextEntryId++;
+
+  data.entries.push(formValue);
+
+  $image.setAttribute('src', '/images/placeholder-image-square.jpg');
+  event.target.reset();
 });
