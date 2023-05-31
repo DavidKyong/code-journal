@@ -1,32 +1,30 @@
 function renderEntry(entry) {
-  const $columnFull = document.createElement('div');
-  $columnFull.className = 'column-full';
 
-  const $entryInfo = document.createElement('ul');
-  $entryInfo.className = 'entry-info';
+  const $li = document.createElement('li');
 
-  const $image = document.createElement('li');
-  $image.setAttribute('src', entry.imageURL);
+  const $image = document.createElement('img');
+  $image.setAttribute('src', entry.url);
 
-  const $title = document.createElement('li');
-  $title.className = 'title';
+  const $picTitle = document.createElement('h3');
+  $picTitle.textContent = entry.title;
 
-  const $descriptions = document.createElement('li');
+  const $descriptions = document.createElement('div');
   $descriptions.className = 'descriptions';
+  $descriptions.textContent = entry.notes;
 
-  $columnFull.appendChild($entryInfo);
+  $li.appendChild($image);
+  $li.appendChild($picTitle);
+  $li.appendChild($descriptions);
 
-  $entryInfo.appendChild($image);
-  $entryInfo.appendChild($title);
-  $entryInfo.appendChild($descriptions);
-
+  return $li;
 }
-const $row = document.querySelector('.row');
+
+const $ul = document.querySelector('ul');
 
 document.addEventListener('DOMContentLoaded', function (event) {
   for (let i = 0; i < data.entries.length; i++) {
     const newEntry = data.entries[i];
     const dataEntry = renderEntry(newEntry);
-    $row.appendChild(dataEntry);
+    $ul.appendChild(dataEntry);
   }
 });
