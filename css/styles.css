@@ -1,0 +1,53 @@
+.button {
+  justify-content: right;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+header {
+  font-family: "proza libre", sans-serif;
+  background-color: rgb(86, 43, 129);
+}
+
+button {
+  background-color: rgb(86, 43, 129);
+  color: white;
+  border: none;
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+}
+
+#title {
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+#url {
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+textarea {
+  margin-top: 0.5rem;
+}
+
+.picture {
+  margin-bottom: 1.25rem;
+}
+
+.tabTitle {
+  color: white;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .right {
+    margin-top: 4rem;
+  }
+}
