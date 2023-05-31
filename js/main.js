@@ -27,4 +27,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
     const dataEntry = renderEntry(newEntry);
     $ul.appendChild(dataEntry);
   }
+  toggleNoEntries();
 });
+
+function toggleNoEntries() {
+  const $entries = document.querySelector('.hidden');
+  if ($entries) {
+    const $entries = $ul.querySelector('li') !== null;
+    if ($entries) {
+      $entries.className = 'hidden';
+    } else {
+      $entries.className = 'none';
+    }
+  }
+}
