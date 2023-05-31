@@ -1,0 +1,37 @@
+header {
+  font-family: "proza libre", sans-serif;
+  background-color: rgb(86, 43, 129);
+  color: white;
+}
+
+h5 {
+  padding-left: 1rem;
+}
+
+.column-full {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.new {
+  display: flex;
+  justify-content: right;
+  margin-top: 1.25rem;
+  padding-right: ;
+}
+
+button {
+  background-color: rgb(86, 43, 129);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+}
