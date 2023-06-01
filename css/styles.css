@@ -8,6 +8,7 @@
 header {
   font-family: "proza libre", sans-serif;
   background-color: rgb(86, 43, 129);
+  color: white;
 }
 
 button {
@@ -40,6 +41,7 @@ textarea {
   margin-bottom: 1.25rem;
 }
 
+
 .tabTitle {
   color: white;
   padding-top: 0.25rem;
@@ -50,4 +52,76 @@ textarea {
   .right {
     margin-top: 4rem;
   }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.title-wrapper-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new {
+  font-size: 17px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  border-radius: 4px;
+  background-color: rgb(86, 43, 129);
+}
+
+.tab-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+li {
+  list-style-type: none;
+  font-family: "proza libre", sans-serif;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: "proza libre", sans-serif;
+}
+
+.column-half > h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.column-half > p {
+  font-size: 14px;
+  word-spacing: 1px;
+}
+
+#new-entry-button {
+  font-family: "open sans", sans-serif;
+}
+
+.no-entry {
+  font-size: 14px;
+  word-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.pic-images {
+  margin-bottom: 1rem;
 }

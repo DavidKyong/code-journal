@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -22,23 +20,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
   <header>
     <div class="container">
       <div class="row">
         <div class="column-full">
+          <div class="tab-title">
+            <div class="title-wrapper">
+              <h3>Code Journal</h3>
+              <div class="entries-link">
+                <a href="" id="entries-click">Entries</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
           <div class="tabTitle">
             <h3>Code Journal</h3>
           </div>
         </div>
       </div>
-
     </div>
   </header>
-  <main class="container">
-    <div data-view="entry-form">
-      <form>
 
+
+  <main class="container">
+    <div data-view="entry-form" class="">
+      <form>
         <div class="row">
           <div class="column-half">
             <div class="picTitle">
@@ -51,7 +60,7 @@
           <div class="column-half">
             <div class="right">
               <label for="title">Title</label><br>
-              <input id="title" type="text" name="pageTitle" required>
+              <input id="title" type="text" name="page-title" required>
               <label for="url">Photo URL</label><br>
               <input id="url" name="photoURL" type="text" required>
             </div>
@@ -74,11 +83,33 @@
             </div>
           </div>
         </div>
-
       </form>
-      <div data-view="entries" class="hidden"></div>
+    </div>
+
+
+    <div data-view="entries" class="">
+      <div class="row">
+        <div class="column-full">
+          <div class="page-title">
+            <div class="title-wrapper-2">
+              <h2>Entries</h2>
+              <div class="new">
+                <a href="" id="new-entry-button">NEW</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <ul id="entries-input">
+
+        </ul>
+        <p class="no-entry">No entries have been recorded.</p>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
-  </body>
+</body>
 </html>

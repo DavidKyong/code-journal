@@ -40,6 +40,30 @@ form {
   .column-half {
     width: 50%;
   }
+
+  .column-full > #entries-input {
+    width: 50%;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+#url,
+#title {
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgb(86, 43, 129);
+  outline: none;
+  border-width: 2px;
 }
 
 img {
