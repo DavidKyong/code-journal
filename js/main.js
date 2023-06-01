@@ -47,27 +47,28 @@ function renderEntry(entry) {
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  const $entryImg = document.getElementById('entries-input');
+  const $entryInput = document.getElementById('entries-input');
 
   for (let i = 0; i < data.entries.length; i++) {
     const entry = data.entries[i];
     const entryElement = renderEntry(entry);
-    $entryImg.appendChild(entryElement);
+    $entryInput.appendChild(entryElement);
   }
+  toggleNoEntries();
 });
 
-/*
 function toggleNoEntries() {
-  const $noEntriesMessage = document.querySelector('.no-entries-message');
-
-  if ($noEntriesMessage) {
+  const $noEntries = document.querySelector('.no-entry');
+  if ($noEntries) {
     if (data.entries.length === 0) {
-      $noEntriesMessage.className = 'no-entries-message';
+      $noEntries.className = 'no-entry';
     } else {
-      $noEntriesMessage.className = 'hidden';
+      $noEntries.className = 'hidden';
     }
   }
 }
+/*
+
 function viewSwap(viewName) {
   const $entryForm = document.querySelector('[data-view="entry-form"]');
   const $entries = document.querySelector('[data-view="entries"]');
