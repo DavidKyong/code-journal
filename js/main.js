@@ -28,21 +28,24 @@ $form.addEventListener('submit', function (event) {
 });
 
 function renderEntry(entry) {
-  const $li = document.createElement('li');
+  const $liImage = document.createElement('li');
+  $liImage.className = 'image-entries';
 
   const $image = document.createElement('img');
-  $image.setAttribute('src', entry.image);
-  $li.appendChild($image);
+  $image.setAttribute('src', entry.url);
+  $liImage.appendChild($image);
 
-  const $title = document.createElement('h3');
-  $title.textContent = entry.title;
-  $li.appendChild($title);
+  const $liEntries = document.createElement('div');
+
+  const $h3 = document.createElement('h3');
+  $h3.textContent = entry.title;
+  $liEntries.appendChild($h3);
 
   const $description = document.createElement('p');
   $description.textContent = entry.notes;
-  $li.appendChild($description);
+  $liEntries.appendChild($description);
 
-  return $li;
+  return [$liImage, $liEntries];
 }
 
 document.addEventListener('DOMContentLoaded', function () {

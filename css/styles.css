@@ -46,3 +46,25 @@ textarea {
     margin-top: 4rem;
   }
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.new {
+  display: flex;
+  justify-content: right;
+}
+
+.tab-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
