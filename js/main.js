@@ -26,7 +26,9 @@ $form.addEventListener('submit', function (event) {
   renderEntry(formValue);
 
   const $newEntry = document.getElementById('entries-input');
-  $newEntry.prepend(formValue);
+
+  const entryElement = renderEntry(formValue);
+  $newEntry.prepend(entryElement);
 
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
   $form.reset();
