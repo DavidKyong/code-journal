@@ -21,11 +21,7 @@ $form.addEventListener('submit', function (event) {
   formValue.entryId = data.nextEntryId;
   data.nextEntryId++;
 
-  data.entries.unshift(formValue);
-
   renderEntry(formValue);
-
-  const $newEntry = document.getElementById('entries-input');
 
   const entryElement = renderEntry(formValue);
   $newEntry.prepend(entryElement);
@@ -36,6 +32,8 @@ $form.addEventListener('submit', function (event) {
   viewSwap('entries');
   toggleNoEntries();
 });
+
+const $newEntry = document.getElementById('entries-input');
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
@@ -55,6 +53,7 @@ function renderEntry(entry) {
 
   const $image = document.createElement('img');
   $image.setAttribute('src', entry.url);
+  $image.setAttribute('alt', 'No picture');
   $image.className = 'pic-images';
   $columnImage.appendChild($image);
 
@@ -68,10 +67,9 @@ function renderEntry(entry) {
 
   return $li;
 }
+const $entryInput = document.getElementById('entries-input');
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  const $entryInput = document.getElementById('entries-input');
-
   for (let i = 0; i < data.entries.length; i++) {
     const entry = data.entries[i];
     const entryElement = renderEntry(entry);
@@ -83,20 +81,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
   toggleNoEntries();
 });
 
+const $noEntries = document.querySelector('.no-entry');
+
 function toggleNoEntries() {
-  const $noEntries = document.querySelector('.no-entry');
-  if ($noEntries) {
-    if (data.entries.length === 0) {
-      $noEntries.className = 'no-entry';
-    } else {
-      $noEntries.className = 'hidden';
-    }
+  if (data.entries.length === 0) {
+    $noEntries.className = 'no-entry';
+  } else {
+    $noEntries.className = 'hidden';
   }
 }
 
+const $entryForm = document.querySelector('[data-view="entry-form"]');
+const $entries = document.querySelector('[data-view="entries"]');
+
 function viewSwap(viewName) {
-  const $entryForm = document.querySelector('[data-view="entry-form"]');
-  const $entries = document.querySelector('[data-view="entries"]');
 
   if (viewName === 'entry-form') {
     $entryForm.className = 'show';
