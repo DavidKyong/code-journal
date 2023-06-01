@@ -37,7 +37,8 @@ const $newEntry = document.getElementById('entries-input');
 
 function renderEntry(entry) {
   const $li = document.createElement('li');
-  $li.className = 'image-entries';
+  $li.setAttribute('data-entry-id', entry.entryId);
+  $li.className = 'new-entries';
 
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
@@ -57,9 +58,17 @@ function renderEntry(entry) {
   $image.className = 'pic-images';
   $columnImage.appendChild($image);
 
+  const $titleRow = document.createElement('div');
+  $titleRow.className = 'title-row';
+  $columnContent.appendChild($titleRow);
+
   const $h3 = document.createElement('h3');
   $h3.textContent = entry.title;
-  $columnContent.appendChild($h3);
+  $titleRow.appendChild($h3);
+
+  const $pencilIcon = document.createElement('i');
+  $pencilIcon.className = 'fas fa-pencil';
+  $titleRow.appendChild($pencilIcon);
 
   const $description = document.createElement('p');
   $description.textContent = entry.notes;
