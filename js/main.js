@@ -114,4 +114,8 @@ $entriesLink.addEventListener('click', function (event) {
 
 $newEntryButton.addEventListener('click', function (event) {
   viewSwap('entry-form');
+
+  $image.setAttribute('src', '/images/placeholder-image-square.jpg');
+  $form.reset();
+
 });
