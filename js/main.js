@@ -28,37 +28,35 @@ $form.addEventListener('submit', function (event) {
 });
 
 function renderEntry(entry) {
-  const $liImage = document.createElement('li');
-  $liImage.className = 'image-entries';
+  const $li = document.createElement('li');
+  $li.className = 'image-entries';
 
   const $image = document.createElement('img');
   $image.setAttribute('src', entry.url);
-  $liImage.appendChild($image);
-
-  const $liEntries = document.createElement('div');
+  $li.appendChild($image);
 
   const $h3 = document.createElement('h3');
   $h3.textContent = entry.title;
-  $liEntries.appendChild($h3);
+  $li.appendChild($h3);
 
   const $description = document.createElement('p');
   $description.textContent = entry.notes;
-  $liEntries.appendChild($description);
+  $li.appendChild($description);
 
-  return [$liImage, $liEntries];
+  return $li;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const $entryList = document.getElementById('entriesList');
+document.addEventListener('DOMContentLoaded', function (event) {
+  const $entryImg = document.getElementById('entries-input');
 
   for (let i = 0; i < data.entries.length; i++) {
     const entry = data.entries[i];
     const entryElement = renderEntry(entry);
-    $entryList.appendChild(entryElement);
+    $entryImg.appendChild(entryElement);
   }
-  toggleNoEntries();
 });
 
+/*
 function toggleNoEntries() {
   const $noEntriesMessage = document.querySelector('.no-entries-message');
 
@@ -95,3 +93,4 @@ $entriesViewLink.addEventListener('click', function () {
 $newEntryButton.addEventListener('click', function () {
   viewSwap('entry-form');
 });
+*/
