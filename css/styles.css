@@ -95,15 +95,26 @@ h2 {
   margin-top: 0;
 }
 
-#new-entry-button {
-  font-family: "open sans", sans-serif;
-}
-
-p {
+.column-half > p {
   font-size: 14px;
   word-spacing: 1px;
 }
 
+#new-entry-button {
+  font-family: "open sans", sans-serif;
+}
+
+.no-entry {
+  font-size: 14px;
+  word-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
 ul {
   padding-left: 0;
+}
+
+.pic-images {
+  margin-bottom: 1rem;
 }

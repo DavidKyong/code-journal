@@ -53,6 +53,7 @@ function renderEntry(entry) {
 
   const $image = document.createElement('img');
   $image.setAttribute('src', entry.url);
+  $image.className = 'pic-images';
   $columnImage.appendChild($image);
 
   const $h3 = document.createElement('h3');
@@ -74,6 +75,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
     const entryElement = renderEntry(entry);
     $entryInput.appendChild(entryElement);
   }
+
+  viewSwap(data.view);
+
   toggleNoEntries();
 });
 
