@@ -40,6 +40,10 @@ form {
   .column-half {
     width: 50%;
   }
+
+  .column-full > #entries-input {
+    width: 50%;
+  }
 }
 
 img {

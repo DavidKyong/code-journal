@@ -55,7 +55,7 @@
           <div class="column-half">
             <div class="right">
               <label for="title">Title</label><br>
-              <input id="title" type="text" name="pageTitle" required>
+              <input id="title" type="text" name="page-title" required>
               <label for="url">Photo URL</label><br>
               <input id="url" name="photoURL" type="text" required>
             </div>
@@ -84,22 +84,23 @@
 
     <div data-view="entries" class="">
       <div class="row">
-        <div class="column-half">
-          <div class="pageTitle">
-            <h2>Entries</h2>
-          </div>
-          <div class="new">
-            <a href="#" id="newEntryButton">NEW</a>
+        <div class="column-full">
+          <div class="page-title">
+            <div class="title-wrapper-2">
+              <h2>Entries</h2>
+              <div class="new">
+                <a href="#" id="new-entry-button">NEW</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="column-half">
-          <ul id="entries-input">
 
-          </ul>
-          <p class="no-entry">No entries have been recorded.</p>
-        </div>
+      <div>
+        <ul id="entries-input">
+
+        </ul>
+        <p class="no-entry">No entries have been recorded.</p>
       </div>
     </div>
   </main>

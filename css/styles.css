@@ -52,9 +52,19 @@ a {
   text-decoration: none;
 }
 
-.new {
+.title-wrapper-2 {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new {
+  font-size: 17px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  border-radius: 4px;
   background-color: rgb(86, 43, 129);
 }
 
@@ -68,4 +78,32 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+li {
+  list-style-type: none;
+  font-family: "proza libre", sans-serif;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: "proza libre", sans-serif;
+}
+
+.column-half > h3 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+#new-entry-button {
+  font-family: "open sans", sans-serif;
+}
+
+p {
+  font-size: 14px;
+  word-spacing: 1px;
+}
+
+ul {
+  padding-left: 0;
 }

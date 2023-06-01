@@ -8,7 +8,7 @@ $inputURL.addEventListener('input', function (event) {
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const $title = $form.elements.pageTitle.value;
+  const $title = $form.elements['page-title'].value;
   const $url = $form.elements.photoURL.value;
   const $message = $form.elements.message.value;
 
@@ -31,17 +31,29 @@ function renderEntry(entry) {
   const $li = document.createElement('li');
   $li.className = 'image-entries';
 
+  const $row = document.createElement('div');
+  $row.setAttribute('class', 'row');
+  $li.appendChild($row);
+
+  const $columnImage = document.createElement('div');
+  $columnImage.setAttribute('class', 'column-half');
+  $row.appendChild($columnImage);
+
+  const $columnContent = document.createElement('div');
+  $columnContent.setAttribute('class', 'column-half');
+  $row.appendChild($columnContent);
+
   const $image = document.createElement('img');
   $image.setAttribute('src', entry.url);
-  $li.appendChild($image);
+  $columnImage.appendChild($image);
 
   const $h3 = document.createElement('h3');
   $h3.textContent = entry.title;
-  $li.appendChild($h3);
+  $columnContent.appendChild($h3);
 
   const $description = document.createElement('p');
   $description.textContent = entry.notes;
-  $li.appendChild($description);
+  $columnContent.appendChild($description);
 
   return $li;
 }
