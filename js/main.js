@@ -21,6 +21,8 @@ $form.addEventListener('submit', function (event) {
   formValue.entryId = data.nextEntryId;
   data.nextEntryId++;
 
+  data.entries.unshift(formValue);
+
   const entryElement = renderEntry(formValue);
   $newEntry.prepend(entryElement);
 
