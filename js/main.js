@@ -23,8 +23,16 @@ $form.addEventListener('submit', function (event) {
 
   data.entries.unshift(formValue);
 
+  renderEntry(formValue);
+
+  const $newEntry = document.getElementById('entries-input');
+  $newEntry.prepend(formValue);
+
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
   $form.reset();
+
+  viewSwap('entries');
+  toggleNoEntries();
 });
 
 function renderEntry(entry) {
