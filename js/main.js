@@ -67,31 +67,29 @@ function toggleNoEntries() {
     }
   }
 }
-/*
 
 function viewSwap(viewName) {
   const $entryForm = document.querySelector('[data-view="entry-form"]');
   const $entries = document.querySelector('[data-view="entries"]');
 
   if (viewName === 'entry-form') {
-    $entryForm.className = '';
+    $entryForm.className = 'show';
     $entries.className = 'hidden';
     data.view = 'entry-form';
   } else if (viewName === 'entries') {
     $entryForm.className = 'hidden';
-    $entries.className = '';
+    $entries.className = 'show';
     data.view = 'entries';
   }
 }
 
-const $entriesViewLink = document.querySelector('#entriesViewLink');
-const $newEntryButton = document.querySelector('#newEntryButton');
+const $entriesLink = document.querySelector('.entries-link a');
+const $newEntryButton = document.querySelector('.new a');
 
-$entriesViewLink.addEventListener('click', function () {
+$entriesLink.addEventListener('click', function (event) {
   viewSwap('entries');
 });
 
-$newEntryButton.addEventListener('click', function () {
+$newEntryButton.addEventListener('click', function (event) {
   viewSwap('entry-form');
 });
-*/

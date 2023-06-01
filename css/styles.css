@@ -55,6 +55,7 @@ a {
 .new {
   display: flex;
   justify-content: right;
+  background-color: rgb(86, 43, 129);
 }
 
 .tab-title {
