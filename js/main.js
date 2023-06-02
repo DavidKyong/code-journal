@@ -1,6 +1,7 @@
 const $inputURL = document.querySelector('#url');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
+const $entryForm = document.querySelector('[data-view="entry-form"]');
 
 $inputURL.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
@@ -8,9 +9,9 @@ $inputURL.addEventListener('input', function (event) {
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const $title = $form.elements['page-title'].value;
-  const $url = $form.elements.photoURL.value;
-  const $message = $form.elements.message.value;
+  const $title = $form.elements.title.value;
+  const $url = $form.elements.url.value;
+  const $message = $form.elements.notes.value;
 
   const formValue = {
     title: $title,
@@ -20,8 +21,6 @@ $form.addEventListener('submit', function (event) {
 
   formValue.entryId = data.nextEntryId;
   data.nextEntryId++;
-
-  data.entries.unshift(formValue);
 
   const entryElement = renderEntry(formValue);
   $newEntry.prepend(entryElement);
@@ -85,6 +84,26 @@ document.addEventListener('DOMContentLoaded', function (event) {
     $entryInput.appendChild(entryElement);
   }
 
+  $entryInput.addEventListener('click', function (event) {
+    if (event.target.className === 'fas fa-pencil') {
+      const entryId = event.target.closest('[data-entry-id]').getAttribute('data-entry-id');
+
+      for (let i = 0; i < data.entries.length; i++) {
+        if (data.entries[i].entryId === parseInt(entryId)) {
+          data.editing = data.entries[i];
+          $form.elements.title.value = data.editing.title;
+          $form.elements.url.value = data.editing.url;
+          $form.elements.message.value = data.editing.notes;
+        }
+      }
+
+      const $newTitle = document.querySelector('.picTitle h2');
+      $newTitle.textContent = 'Edit Entry';
+
+      viewSwap('entry-form');
+    }
+  });
+
   viewSwap(data.view);
 
   toggleNoEntries();
@@ -100,7 +119,6 @@ function toggleNoEntries() {
   }
 }
 
-const $entryForm = document.querySelector('[data-view="entry-form"]');
 const $entries = document.querySelector('[data-view="entries"]');
 
 function viewSwap(viewName) {
