@@ -18,18 +18,28 @@ $form.addEventListener('submit', function (event) {
     url: $url,
     notes: $message
   };
+  if (data.editing === null) {
+    formValue.entryId = data.nextEntryId;
+    data.nextEntryId++;
 
-  formValue.entryId = data.nextEntryId;
-  data.nextEntryId++;
+    data.entries.unshift(formValue);
+    const entryElement = renderEntry(formValue);
+    $newEntry.prepend(entryElement);
+  } else if (data.editing !== null) {
+    const editingEntryId = data.editing.entryId;
+    const newData = data.entries[editingEntryId - 1];
 
-  const entryElement = renderEntry(formValue);
-  $newEntry.prepend(entryElement);
+    newData.title = $title;
+    newData.notes = $message;
+    newData.url = $url;
+    newData.editing = null;
+  }
 
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
   $form.reset();
-
   viewSwap('entries');
   toggleNoEntries();
+  location.reload(true);
 });
 
 const $newEntry = document.getElementById('entries-input');
@@ -87,20 +97,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
   $entryInput.addEventListener('click', function (event) {
     if (event.target.className === 'fas fa-pencil') {
       const entryId = event.target.closest('[data-entry-id]').getAttribute('data-entry-id');
-
       for (let i = 0; i < data.entries.length; i++) {
         if (data.entries[i].entryId === parseInt(entryId)) {
+
           data.editing = data.entries[i];
           $form.elements.title.value = data.editing.title;
           $form.elements.url.value = data.editing.url;
           $form.elements.message.value = data.editing.notes;
+          const $newTitle = document.querySelector('.picTitle h2');
+          $newTitle.textContent = 'Edit Entry';
+          viewSwap('entry-form');
         }
       }
-
-      const $newTitle = document.querySelector('.picTitle h2');
-      $newTitle.textContent = 'Edit Entry';
-
-      viewSwap('entry-form');
     }
   });
 
