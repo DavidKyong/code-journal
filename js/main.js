@@ -1,6 +1,7 @@
 const $inputURL = document.querySelector('#url');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
+const $ul = document.querySelector('ul');
 
 $inputURL.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
@@ -30,11 +31,12 @@ $form.addEventListener('submit', function (event) {
 
   } else if (data.editing !== null) {
     const updateEntryId = data.editing.entryId;
-    const newData = data.entries.find(entry => entry.entryId === updateEntryId);
+    const $oldEntry = $newEntry.querySelector('[data-entry-id="' + updateEntryId + '"]');
 
-    newData.title = $title;
-    newData.notes = $message;
-    newData.url = $url;
+    const updateValue = renderEntry(formValue);
+    updateValue.setAttribute('data-entry-id', updateEntryId);
+
+    $ul.replaceChild(updateValue, $oldEntry);
 
     data.editing = null;
 
@@ -45,8 +47,6 @@ $form.addEventListener('submit', function (event) {
   viewSwap('entries');
   toggleNoEntries();
   $form.reset();
-
-  location.reload();
 
 });
 
