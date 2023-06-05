@@ -2,6 +2,7 @@ const $inputURL = document.querySelector('#url');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('ul');
+let updateEntryId;
 
 $inputURL.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
@@ -30,11 +31,10 @@ $form.addEventListener('submit', function (event) {
     $newEntry.prepend(entryElement);
 
   } else if (data.editing !== null) {
-    const updateEntryId = data.editing.entryId;
-    const $oldEntry = $newEntry.querySelector('[data-entry-id="' + updateEntryId + '"]');
+    updateEntryId = data.editing.entryId;
+    const $oldEntry = document.querySelector('[data-entry-id="' + updateEntryId + '"]');
 
     const updateValue = renderEntry(formValue);
-    updateValue.setAttribute('data-entry-id', updateEntryId);
 
     $ul.replaceChild(updateValue, $oldEntry);
 
@@ -53,9 +53,14 @@ $form.addEventListener('submit', function (event) {
 const $newEntry = document.getElementById('entries-input');
 
 function renderEntry(entry) {
+
   const $li = document.createElement('li');
   $li.setAttribute('data-entry-id', entry.entryId);
   $li.className = 'new-entries';
+
+  if (data.editing !== null) {
+    $li.setAttribute('data-entry-id', updateEntryId);
+  }
 
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
