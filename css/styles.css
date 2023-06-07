@@ -41,13 +41,6 @@ textarea {
   margin-bottom: 1.25rem;
 }
 
-
-.tabTitle {
-  color: white;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
 @media screen and (min-width: 768px) {
   .right {
     margin-top: 4rem;
@@ -124,4 +117,15 @@ ul {
 
 .pic-images {
   margin-bottom: 1rem;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+i {
+  padding-top: 1.25rem;
+  font-size: 1.25rem;
+  color: rgb(86, 43, 129);
 }
