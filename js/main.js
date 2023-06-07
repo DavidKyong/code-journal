@@ -101,7 +101,11 @@ function renderEntry(entry) {
   return $li;
 }
 
+const $delete = document.querySelector('.delete.hidden');
+const $buttonColumn = document.querySelector('.column-full.space-right');
+
 $newEntry.addEventListener('click', function (event) {
+  console.log($delete);
   if (event.target.className === 'fas fa-pencil') {
     const theEntryId = event.target.closest('[data-entry-id]').getAttribute('data-entry-id');
     for (let i = 0; i < data.entries.length; i++) {
@@ -113,6 +117,8 @@ $newEntry.addEventListener('click', function (event) {
         const $newTitle = document.querySelector('.picTitle h2');
         $newTitle.textContent = 'Edit Entry';
         data.editing.entryId = parseInt(theEntryId);
+        $buttonColumn.className = 'column-full space-between';
+        $delete.className = 'delete';
 
         viewSwap('entry-form');
         break;

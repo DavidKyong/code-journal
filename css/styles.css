@@ -129,3 +129,26 @@ i {
   font-size: 1.25rem;
   color: rgb(86, 43, 129);
 }
+
+.space-right {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+#delete {
+  border: none;
+  background-color: rgb(240, 240, 240);
+  color: red;
+  text-decoration: underline;
+  font-size: 14px;
+  padding: 0;
+}
