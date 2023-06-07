@@ -105,7 +105,7 @@ const $delete = document.querySelector('.delete.hidden');
 const $buttonColumn = document.querySelector('.column-full.space-right');
 
 $newEntry.addEventListener('click', function (event) {
-  console.log($delete);
+
   if (event.target.className === 'fas fa-pencil') {
     const theEntryId = event.target.closest('[data-entry-id]').getAttribute('data-entry-id');
     for (let i = 0; i < data.entries.length; i++) {
@@ -178,4 +178,12 @@ $newEntryButton.addEventListener('click', function (event) {
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
   $form.reset();
 
+});
+
+const $cancel = document.querySelector('#cancel');
+const $background = document.querySelector('.background');
+
+$cancel.addEventListener('click', function (event) {
+  $background.className = 'background hidden';
+  viewSwap('entries');
 });
