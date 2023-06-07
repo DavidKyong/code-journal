@@ -2,7 +2,6 @@ const $inputURL = document.querySelector('#url');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('ul');
-// let updateEntryId;
 
 $inputURL.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
