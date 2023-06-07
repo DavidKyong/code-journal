@@ -2,7 +2,7 @@ const $inputURL = document.querySelector('#url');
 const $image = document.querySelector('img');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('ul');
-let updateEntryId;
+// let updateEntryId;
 
 $inputURL.addEventListener('input', function (event) {
   $image.setAttribute('src', event.target.value);
@@ -28,25 +28,32 @@ $form.addEventListener('submit', function (event) {
 
     const entryElement = renderEntry(formValue);
 
-    $newEntry.prepend(entryElement);
+    $ul.prepend(entryElement);
 
   } else if (data.editing !== null) {
-    updateEntryId = data.editing.entryId;
-    const $oldEntry = document.querySelector('[data-entry-id="' + updateEntryId + '"]');
+    const updateEntryId = data.editing.entryId;
+    formValue.entryId = updateEntryId;
 
-    const updateValue = renderEntry(formValue);
+    const originalIndex = data.entries.findIndex(function (entry) {
+      return entry.entryId === updateEntryId;
+    });
 
-    $ul.replaceChild(updateValue, $oldEntry);
+    if (originalIndex !== -1) {
+      data.entries[originalIndex] = formValue;
 
+      const newLi = renderEntry(formValue);
+      const $oldLi = document.querySelector('[data-entry-id= "' + updateEntryId + '"]');
+
+      $oldLi.replaceWith(newLi);
+    }
     data.editing = null;
-
   }
 
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
+  $form.reset();
 
   viewSwap('entries');
   toggleNoEntries();
-  $form.reset();
 
 });
 
@@ -57,10 +64,6 @@ function renderEntry(entry) {
   const $li = document.createElement('li');
   $li.setAttribute('data-entry-id', entry.entryId);
   $li.className = 'new-entries';
-
-  if (data.editing !== null) {
-    $li.setAttribute('data-entry-id', updateEntryId);
-  }
 
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row');
