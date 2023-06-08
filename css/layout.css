@@ -8,7 +8,6 @@ body {
 
 .container {
   max-width: 575px;
-  margin: 0 auto;
   padding: 0 1.5rem;
 }
 
@@ -20,6 +19,7 @@ form {
 .row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .column-full,
@@ -84,4 +84,8 @@ textarea:focus {
   border-color: rgb(86, 43, 129);
   outline: none;
   border-width: 2px;
+}
+
+.margin-bottom {
+  margin-bottom: 1rem;
 }

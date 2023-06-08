@@ -191,3 +191,28 @@ $cancel.addEventListener('click', function (event) {
   $background.className = 'background hidden';
   viewSwap('entries');
 });
+
+const $confirm = document.querySelector('#confirm');
+
+$confirm.addEventListener('click', function (event) {
+
+  // const updateEntryId = data.editing.entryId;
+
+  $background.className = 'background hidden';
+});
+
+// const updateEntryId = data.editing.entryId;
+// formValue.entryId = updateEntryId;
+
+// const originalIndex = data.entries.findIndex(function (entry) {
+//   return entry.entryId === updateEntryId;
+// });
+
+// if (originalIndex !== -1) {
+//   data.entries[originalIndex] = formValue;
+
+//   const newLi = renderEntry(formValue);
+//   const $oldLi = document.querySelector('[data-entry-id= "' + updateEntryId + '"]');
+
+//   $oldLi.replaceWith(newLi);
+// }
