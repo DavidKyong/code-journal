@@ -102,6 +102,7 @@ function renderEntry(entry) {
 }
 
 $newEntry.addEventListener('click', function (event) {
+
   if (event.target.className === 'fas fa-pencil') {
     const theEntryId = event.target.closest('[data-entry-id]').getAttribute('data-entry-id');
     for (let i = 0; i < data.entries.length; i++) {
@@ -113,6 +114,8 @@ $newEntry.addEventListener('click', function (event) {
         const $newTitle = document.querySelector('.picTitle h2');
         $newTitle.textContent = 'Edit Entry';
         data.editing.entryId = parseInt(theEntryId);
+        $buttonColumn.className = 'column-full space-between';
+        $delete.className = 'delete';
 
         viewSwap('entry-form');
         break;
@@ -172,4 +175,44 @@ $newEntryButton.addEventListener('click', function (event) {
   $image.setAttribute('src', '/images/placeholder-image-square.jpg');
   $form.reset();
 
+});
+
+const $delete = document.querySelector('.delete.hidden');
+const $buttonColumn = document.querySelector('.column-full.space-right');
+
+$delete.addEventListener('click', function (event) {
+  $background.className = 'background';
+});
+
+const $cancel = document.querySelector('#cancel');
+const $background = document.querySelector('.background.hidden');
+
+$cancel.addEventListener('click', function (event) {
+  $background.className = 'background hidden';
+
+  viewSwap('entries');
+});
+
+const $confirm = document.querySelector('#confirm');
+
+$confirm.addEventListener('click', function (event) {
+  const deleteIndex = data.entries.findIndex(function (entry) {
+    return entry.entryId === data.editing.entryId;
+  });
+
+  if (deleteIndex !== -1) {
+    data.entries.splice(deleteIndex, 1);
+
+    const entryElement = document.querySelector('[data-entry-id="' + data.editing.entryId + '"]');
+
+    if (entryElement) {
+      entryElement.remove();
+    }
+
+    toggleNoEntries();
+
+    $background.className = 'background hidden';
+
+    viewSwap('entries');
+  }
 });

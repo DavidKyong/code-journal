@@ -23,6 +23,11 @@ button {
   font-size: 12px;
 }
 
+.head {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 #title {
   margin-bottom: 1.5rem;
   margin-top: 0.5rem;
@@ -128,4 +133,60 @@ i {
   padding-top: 1.25rem;
   font-size: 1.25rem;
   color: rgb(86, 43, 129);
+}
+
+.space-right {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+#delete {
+  border: none;
+  background-color: rgb(240, 240, 240);
+  color: red;
+  text-decoration: underline;
+  font-size: 14px;
+  padding: 0;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.modal p {
+  margin-bottom: 20px;
+}
+
+#cancel {
+  background-color: rgb(182, 182, 182);
+  border-radius: 4px;
+  color: black;
+}
+
+#confirm {
+  background-color: rgb(220, 38, 37);
+  border-radius: 4px;
 }
